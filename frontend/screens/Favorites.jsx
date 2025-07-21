@@ -16,7 +16,6 @@ const Favorites = ({navigation}) => {
   const checkFavorites = async () => {
     const id = await AsyncStorage.getItem('id');
      const favoritesId = `favorites${JSON.parse(id)}`;
-     console.log(favoritesId);
     try {
       const favoritesObj = await AsyncStorage.getItem(favoritesId);
       if (favoritesObj !== null) {
@@ -26,17 +25,14 @@ const Favorites = ({navigation}) => {
         setFavoritesData(favoritesArray);
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
   const deleteFavorite = async (id) => {
     const userId = await AsyncStorage.getItem('id');
      const favoritesId = `favorites${JSON.parse(userId)}`;
-     console.log(favoritesId);
     let productId = id;
 
-    console.log(productId);
   
     try {
       const existingItem = await AsyncStorage.getItem(favoritesId);
@@ -48,14 +44,12 @@ const Favorites = ({navigation}) => {
   
         navigation.goBack();
       } else {
-        console.log(`Key does not exist: ${productId}`);
       }
   
       await AsyncStorage.setItem(favoritesId, JSON.stringify(favoritesObj));
 
 
     } catch (error) {
-      console.log(error);
     }
   };
 

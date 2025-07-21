@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Expo
+.expo/
+
+# Build outputs
+/build/
+/dist/
+
+# Misc
+.env

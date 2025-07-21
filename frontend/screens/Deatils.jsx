@@ -22,7 +22,6 @@ const Details = ({ navigation }) => {
   
   const createCheckoutSession = async () => {
     const id = await AsyncStorage.getItem('id');
-    console.log(id);
 
     const response = await fetch('https://paymentorders-production.up.railway.app/stripe/create-checkout-session', {
       method: 'POST',
@@ -50,10 +49,8 @@ const Details = ({ navigation }) => {
     const { url } = webViewState;
     if (url && url.includes('checkout-success')) {
       navigation.navigate('Bottom Navigation')
-      console.log('Payment successful!');
     } else if (url && url.includes('cancel')) {
       navigation.navigate('Bottom Navigation')
-      console.log('Payment canceled!');
     }
   };
 
@@ -65,7 +62,6 @@ const Details = ({ navigation }) => {
   const checkFavorites = async () => {
     const userId = await AsyncStorage.getItem('id');
      const favoritesId = `favorites${JSON.parse(userId)}`;
-     console.log(favoritesId);
     try {
       const favoritesObj = await AsyncStorage.getItem(favoritesId);
       if (favoritesObj !== null) {
@@ -75,7 +71,6 @@ const Details = ({ navigation }) => {
         }
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -112,17 +107,14 @@ const Details = ({ navigation }) => {
         // Key already exists, so delete it
         delete favoritesObj[productId];
 
-        console.log(`Deleted key: ${productId}`);
         setFavorites(false);
       } else {
         favoritesObj[productId] = productObj;
-        console.log(`Added key: ${productId}`);
         setFavorites(true);
       }
 
       await AsyncStorage.setItem(favoritesId, JSON.stringify(favoritesObj));
     } catch (error) {
-      console.log(error);
     }
   };
 
