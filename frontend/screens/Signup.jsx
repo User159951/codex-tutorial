@@ -79,7 +79,6 @@ const Signup = ({ navigation }) => {
       try {
         const endpoint = 'http://localhost:3000/api/register';
         const data = inputs
-        console.log(data);
   
         const response = await axios.post(endpoint, data);
         

@@ -46,7 +46,6 @@ const Profile = ({ navigation }) => {
     try {
       const allKeys = await AsyncStorage.getAllKeys();
       await AsyncStorage.multiRemove(allKeys);
-      console.log("All keys deleted successfully.");
     } catch (error) {
       console.error("Error deleting keys:", error);
     }
@@ -68,8 +67,8 @@ const Profile = ({ navigation }) => {
       "Delete Account",
       "Are you sure you want to delete your account?",
       [
-        { text: "Cancel", onPress: () => console.log("Cancel pressed") },
-        { text: "Yes", onPress: () => console.log("Delete pressed") },
+        { text: "Cancel" },
+        { text: "Yes" },
       ],
       { defaultIndex: 1 } // Index 1 corresponds to the "Delete" button
     );
@@ -80,7 +79,7 @@ const Profile = ({ navigation }) => {
       "Clear Cache",
       "Are you sure you want to clear all saved data on your device?",
       [
-        { text: "Cancel", onPress: () => console.log("Cancel pressed") },
+        { text: "Cancel" },
         { text: "Delete", onPress: () => deleteAllKeys() },
       ],
       { defaultIndex: 1 } // Index 1 corresponds to the "Delete" button
@@ -92,7 +91,7 @@ const Profile = ({ navigation }) => {
       "Logout",
       "Are you sure you want to logout?",
       [
-        { text: "Cancel", onPress: () => console.log("Cancel pressed") },
+        { text: "Cancel" },
         { text: "Continue", onPress: () => userLogout() },
       ],
       { defaultIndex: 1 } // Index 1 corresponds to the "Delete" button

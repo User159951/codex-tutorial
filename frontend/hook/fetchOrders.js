@@ -10,7 +10,6 @@ const fetchOrders = () => {
 
     const fetchData = async () => {
         const id = await AsyncStorage.getItem('id');
-        console.log(id);
         setLoading(true)
 
         try {

@@ -59,11 +59,9 @@ const LoginPage = ({ navigation }) => {
     try {
       const endpoint = 'http://localhost:3000/api/login';
       const data = inputs
-      console.log(data);
 
       const response = await axios.post(endpoint, data);
       setResponseData(response.data);
-      console.log(responseData);
 
       try {
         setLoader(false);

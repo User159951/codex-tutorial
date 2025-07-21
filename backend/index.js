@@ -13,7 +13,10 @@ const orderRoute = require('./routes/orders')
 
 
 dotenv.config()
-mongoose.connect(process.env.MONGO_URL).then(() => console.log("db connected")).catch((err) => console.log(err));
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {})
+  .catch(() => {});
 
 
 app.use(express.json({ limit: '10mb' }));
@@ -30,4 +33,4 @@ app.use("/api/orders", orderRoute);
 
 
 
-app.listen(process.env.PORT || port, () => console.log(`App listening on port ${process.env.PORT}!`))
+app.listen(process.env.PORT || port)
